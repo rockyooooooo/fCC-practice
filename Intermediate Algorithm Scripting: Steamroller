@@ -1,0 +1,16 @@
+function steamrollArray(arr) {
+  let newArr = arr.map(item => flat(item));
+
+  function flat(elem){
+    if(Array.isArray(elem)){
+      return elem.map(arg => flat(arg));
+    } else {
+      return elem;
+    }
+  }
+
+  console.log(newArr);
+  return newArr;
+}
+
+steamrollArray([1, [2], [3, [[4]]]]);
