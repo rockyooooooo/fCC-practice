@@ -1,9 +1,19 @@
 function addTogether(...args) {
-  if(args.every(item => typeof item === "number")){
-    if(args.length > 1){    
-      return args.reduce((a, b) => a + b);
+  if (typeof args[0] === "number") {
+    if (args.length > 1) {
+      if (typeof args[1] === "number") {
+        return args.reduce((a, b) => a + b);
+      } else {
+        return undefined;
+      }
     } else {
-      return sum += args;
+      return function(arg2) {
+        if (typeof arg2 === "number") {
+          return args[0] + arg2;
+        } else {
+          return undefined;
+        }
+      }
     }
   }
 
