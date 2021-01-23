@@ -1,0 +1,83 @@
+function convertToRoman(num) {
+    let romanNum = "";
+    
+    if(num > 999){
+        for(let i = 0; i < Math.floor(num / 1000); i++){
+            romanNum += "M";
+        }
+        num %= 1000;
+    }
+
+    if(num > 499){
+        if(Math.floor(num / 100) == 9){
+            romanNum += "CM";
+            num %= 100;
+        } else {
+            for(let i = 0; i < Math.floor(num / 500); i++){
+                romanNum += "D";
+            }
+            num -= 500;
+        }
+    }
+    if(num > 99){ 
+        if (Math.floor(num / 100) == 4){
+            romanNum += "CD";
+            num %= 100;
+        } else {
+            for(let i = 0; i < Math.floor(num / 100); i++){
+                romanNum += "C";
+            }
+            num %= 100;
+        }
+    }
+
+    if(num > 49){
+        if(Math.floor(num / 10) == 9){
+            romanNum += "XC";
+            num %= 10;
+        } else {
+            for(let i = 0; i < Math.floor(num / 50); i++){
+                romanNum += "L";
+            }
+            num -= 50;
+        }
+    }
+    if(num > 9){
+        if(Math.floor(num / 10) == 4){
+            romanNum += "XL";
+            num %= 10;
+        } else {
+            for(let i = 0; i < Math.floor(num / 10); i++){
+                romanNum += "X";
+            }
+            num %= 10;
+        }
+    }
+
+    if(num > 4){
+        if(num == 9){
+            romanNum += "IX";
+            return romanNum;
+        } else {
+            for(let i = 0; i < Math.floor(num / 5); i++){
+                romanNum += "V";
+            }
+            num -= 5;
+        }
+    }
+    if(num > 0){
+        if(num == 4){
+            romanNum += "IV";
+            return romanNum;
+        } else {
+            for(let i = 0; i < num; i++){
+                romanNum += "I";
+            }
+            return romanNum;
+        }
+    }
+
+ return romanNum;
+}
+
+convertToRoman(36);
