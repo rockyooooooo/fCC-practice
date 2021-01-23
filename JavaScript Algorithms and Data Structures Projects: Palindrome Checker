@@ -1,18 +1,10 @@
 function palindrome(str) {
-  let arr = str.toLowerCase().split("");
-  
-  let newArr = arr.filter(item => /[a-zA-Z0-9]/.test(item))
-
-  let reverseArr = newArr.slice();
-  reverseArr.reverse();
-
-  let newStr = "";
-  let reversedStr = "";
-
-  newArr.forEach(item => newStr += item);
-  reverseArr.forEach(item => reversedStr += item);
-
-  return newStr === reversedStr;
+  return str.replace(/[^a-zA-Z0-9]/g, "").toLowerCase() === str
+  .replace(/[^a-zA-Z0-9]/g, "")
+  .toLowerCase()
+  .split("")
+  .reverse()
+  .join("");
 }
 
 
