@@ -2,7 +2,7 @@ function binaryAgent(str) {
   let newArr = str.split(" ");
   let newStr = "";
   newArr.forEach(item => 
-  newStr.concat(String.fromCharCode(parseInt(item, 2))));
+  newStr += String.fromCharCode(parseInt(item, 2)));
   
   console.log(newStr);
   return newStr;
