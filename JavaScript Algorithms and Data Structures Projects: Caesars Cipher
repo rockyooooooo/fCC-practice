@@ -1,0 +1,16 @@
+function rot13(str) {
+  let newStr = "";
+  str.split("").forEach(item => {
+    if(item.charCodeAt() >= 65 && item.charCodeAt() <= 90){
+      if(item.charCodeAt() - 13 < 65){
+        return newStr += String.fromCharCode(item.charCodeAt() + 13);
+      }
+      return newStr += String.fromCharCode(item.charCodeAt() - 13);
+    }
+    return newStr += String.fromCharCode(item.charCodeAt());
+  });
+
+  return newStr;
+}
+
+rot13("SERR PBQR PNZC");
