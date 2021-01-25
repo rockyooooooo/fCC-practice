@@ -1,0 +1,23 @@
+function telephoneCheck(str) {
+  let hasTenDigits = str.match(/\d/g).length == 10;
+  let hasElevenDigits = str.match(/\d/g).length == 11;
+  let startWithOne = /^1/.test(str);
+  let hasUnpermittedChars = /[^\d^\-^\s^\(^\)]/.test(str);
+  let hasCorrectParentheses = /(\((?=\d{3}\)))/.test(str);
+
+  console.log(hasCorrectParentheses);
+
+  if (!hasTenDigits && !hasElevenDigits) {
+    return false;
+  } else if (hasUnpermittedChars || !hasCorrectParentheses) {
+    return false;
+  } else {
+    if(hasElevenDigits && !startWithOne) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+}
+
+telephoneCheck("555-555-5555");
